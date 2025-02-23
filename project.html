@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project - Funbi Akintade</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/heroicons@2.0.18/outline/index.js"></script>
+  <link rel="stylesheet" href="port.css" />
+  <style>
+    /* Slide-up animation */
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .slide-up {
+      animation: slideUp 1s ease-out forwards;
+    }
+    /* Fade-in animation (magic3d) */
+    @keyframes magic3d {
+      0% {
+        opacity: 0;
+        transform: perspective(600px) rotateX(0deg) translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: perspective(600px) rotateX(0deg) translateY(0);
+      }
+    }
+    .fade-in.visible {
+      animation: magic3d 0.8s ease-out forwards;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* Header styling */
+    header {
+      background-color: black;
+      padding: 8px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    header img {
+      height: 5rem;
+    }
+    .navbar-left a, .navbar-right a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .navbar-left a:hover, .navbar-right a:hover {
+      color: #f30f48;
+    }
+    /* Footer styling */
+    footer {
+      background-color: black;
+      padding: 8px 20px;
+      flex-direction: column;
+      align-items: center;
+      min-height: 150px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    .footer-text a:hover {
+      color: #f30f48;
+    }
+    /* Project Item styling */
+    .project-item {
+      padding: 20px;
+      background-color: #111;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(243, 15, 72, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(243, 15, 72, 0.5);
+    }
+    .project-title {
+      font-size: 1.5rem;
+      color: #f30f48;
+      margin-bottom: 10px;
+    }
+    .project-description {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+    /* Custom bullet styling (if needed) */
+    .custom-bullet {
+      list-style-type: disc;
+    }
+    .custom-bullet li::marker {
+      color: #f30f48;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="navbar-left">
+      <img src="img/Black And White Minimalist Typography Personal Logo (1).png" alt="Logo" />
+    </div>
+    <div class="navbar-right">
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="Port.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skill.html">Skills</a></li>
+          <li><a href="project.html" class="hover:text-[#f30f48]">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Projects Section -->
+  <main class="projects-container pt-28 px-10">
+    <!-- Intro Section with Blurred Background -->
+    <section class="relative text-center mb-12 overflow-hidden">
+      <div class="absolute inset-0 bg-cover bg-center opacity-30 filter blur-sm" style="background-image: url('img/Moda_app_-_YULIIA_MEI__1_-removebg-preview.png');"></div>
+      <div class="relative z-10 slide-up">
+        <h1 class="text-5xl font-bold text-[#f30f48] mb-4 animate-pulse">Projects</h1>
+        <p class="text-lg max-w-3xl mx-auto">
+          Explore my projects below, showcasing innovative designs and cutting-edge front-end development work.
+        </p>
+      </div>
+    </section>
+
+    <!-- GitHub Project Section (Single Repository: e-commerce) -->
+    <section class="project-list mb-12 fade-in">
+      <h2 class="text-4xl font-bold text-[#f30f48] text-center mb-8">My GitHub Project: e-commerce</h2>
+      <div id="github-project" class="grid grid-cols-1 gap-8"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-16 bg-black text-center py-2 border-t border-gray-700">
+    <div class="footer-text mb-2">
+      <p>&copy; 2025 Funbi Akintade. All rights reserved.</p>
+      <p>Phone: +234-702-5511-392 | Email: <a href="mailto:Ayipexfunby@gmail.com" class="text-[#f30f48] hover:text-[#f30f48]">Ayipexfunby@gmail.com</a></p>
+    </div>
+    <div class="social-icons flex justify-center space-x-6">
+      <a href="https://www.linkedin.com/in/funbi-akintade-59a4ba237" target="_blank" class="hover:text-[#f30f48]">
+        <img src="https://img.icons8.com/ios-filled/40/ffffff/linkedin.png" alt="LinkedIn" />
+      </a>
+      <a href="https://www.instagram.com/oluwafunbilayorr" target="_blank" class="hover:text-[#f30f48]">
+        <img src="https://img.icons8.com/ios-filled/40/ffffff/instagram-new.png" alt="Instagram" />
+      </a>
+      <a href="mailto:Ayipexfunby@gmail.com" class="hover:text-[#f30f48]">
+        <img src="https://img.icons8.com/ios-filled/40/ffffff/email.png" alt="Email" />
+      </a>
+    </div>
+  </footer>
+
+  <!-- GitHub Projects Script -->
+  <script>
+    // Fetch details for the "e-commerce" repository from the "Funbi-prog" GitHub account
+    fetch('https://api.github.com/repos/Funbi-prog/e-commerce')
+      .then(response => response.json())
+      .then(repo => {
+        const projectContainer = document.getElementById('github-project');
+        // Create a project item card
+        const projectItem = document.createElement('div');
+        projectItem.className = 'project-item fade-in slide-up';
+        projectItem.innerHTML = `
+          <h3 class="project-title">${repo.name}</h3>
+          <p class="project-description">${repo.description || 'No description provided.'}</p>
+          <a href="${repo.html_url}" target="_blank" class="text-[#f30f48] hover:underline">View Project on GitHub</a>
+        `;
+        projectContainer.appendChild(projectItem);
+      })
+      .catch(error => {
+        console.error('Error fetching GitHub repository:', error);
+      });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const fadeElements = document.querySelectorAll(".fade-in, .slide-up");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.2 });
+      fadeElements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+</body>
+</html>

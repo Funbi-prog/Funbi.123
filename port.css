@@ -1,0 +1,263 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fixed-image-right {
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    height: 70vh;
+    width: auto;
+    z-index: -1;
+}
+
+section {
+    margin-top: 120px;
+    padding: 50px 10%;
+    text-align: left;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    padding: 16px 40px;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+header img {
+    height: 8rem;
+    z-index: 21;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 21;
+}
+
+.navbar-left a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-left a:hover {
+    color: #38bdf8;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 21;
+}
+
+.navbar-right a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-right a:hover {
+    color: #38bdf8;
+}
+
+.intro-text {
+    text-align: left;
+    max-width: 700px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.intro-text .nigeria {
+    color: #ec4899;
+}
+
+#about {
+    background-color: black;
+    color: white;
+    padding: 80px 10%;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+#about img {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    margin-right: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#about img:hover {
+    transform: scale(1.05);
+}
+
+#about .text-container {
+    max-width: 600px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-top: 60px;
+    height: 80px;
+    /* Same height as navbar */
+}
+
+footer .footer-logo {
+    height: 50px;
+}
+
+footer .social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+    transform: scale(1);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #38bdf8;
+    transform: scale(1.2);
+}
+
+footer .footer-text {
+    font-size: 1rem;
+    max-width: 600px;
+    color: #d1d5db;
+}
+
+footer .footer-text a {
+    color: #38bdf8;
+}
+
+footer .footer-text a:hover {
+    color: #ec4899;
+}
+
+#skills {
+    background-color: #ec4899;
+    /* Pink background */
+    color: white;
+    padding: 50px 5%;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    width: 90%;
+    max-width: 1200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#projects {
+    background-color: #000000;
+    /* Pink background */
+    color: white;
+    padding: 50px 5%;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    width: 90%;
+    max-width: 1200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact {
+    background-color: #ec4899;
+    /* Pink background */
+    color: white;
+    padding: 50px 5%;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    width: 90%;
+    max-width: 1200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#skills:hover,
+#projects:hover,
+#contact:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 2rem;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #38bdf8;
+}
+
+.left-aligned-section {
+    text-align: left;
+    max-width: 700px;
+}
+
+/* Add some spacing around the text */
+#skills ul,
+#projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+#skills li,
+#projects li {
+    margin-bottom: 10px;
+}

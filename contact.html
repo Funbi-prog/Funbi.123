@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Funbi Akintade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.js"></script>
+    <style>
+        @keyframes magic3d {
+            0% {
+                opacity: 0;
+                transform: perspective(600px) rotateX(0deg) translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: perspective(600px) rotateX(0deg) translateY(0);
+            }
+        }
+
+        /* Fade-in animation */
+        .fade-in.visible {
+            animation: magic3d 0.8s ease-out forwards;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fixed-image-right {
+            position: fixed;
+            top: 10%;
+            right: 2%;
+            height: 77vh;
+            width: auto;
+            z-index: -1;
+        }
+
+        section {
+            margin-top: 120px;
+            padding: 50px 10%;
+            text-align: left;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: black;
+            padding: 16px 40px;
+            z-index: 20;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        header img {
+            height: 7rem;
+            z-index: 21;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 21;
+        }
+
+        .navbar-left a {
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar-left a:hover {
+            color: #f30f48;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 21;
+        }
+
+        .navbar-right a {
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar-right a:hover {
+            color: #f30f48;
+        }
+
+        .intro-text {
+            text-align: left;
+            max-width: 700px;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .intro-text .nigeria {
+            color: #f30f48;
+        }
+
+        /* FAQ, Help, and Contact Sections remain unchanged */
+        .faq-section {
+            margin: 40px 5%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #f30f48;
+            margin-bottom: 20px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .faq-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .faq-box {
+            background-color: #111;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .faq-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        .faq-question {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #f30f48;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .help-box {
+            margin: 40px 5%;
+            max-width: 1200px;
+            background: linear-gradient(135deg, #f30f48, transparent);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(243, 15, 72, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .help-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(243, 15, 72, 0.7);
+        }
+
+        /* Contact Form Container */
+        #contact {
+            background-color: black;
+            padding: 40px 5%;
+            margin-top: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* Diffused glowing effect underneath the contact form */
+        #contact::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -15px;
+            width: 100%;
+            height: 10px;
+            background: #f30f48;
+            filter: blur(8px);
+            opacity: 0.8;
+            border-radius: 4px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            background-color: #1f2937;
+            color: white;
+            border: 2px solid #f30f48;
+            border-radius: 8px;
+            width: 100%;
+            margin-bottom: 16px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 8px #f30f48;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            border-radius: 8px;
+            background-color: #f30f48;
+            color: white;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #e02036;
+            box-shadow: 0 0 8px #f30f48;
+        }
+
+        /* Fixed Decorative Blurred Image */
+        .fixed-image-right {
+            position: fixed;
+            top: 10%;
+            right: 2%;
+            height: 77vh;
+            width: auto;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+    <header class="flex justify-between items-center transition-all">
+        <div class="navbar-left">
+            <img src="img/Black And White Minimalist Typography Personal Logo (1).png" alt="Logo" class="navbar-img"
+                style="height: 7rem;">
+        </div>
+        <div class="navbar-right">
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="Port.html" class="text-white hover:text-blue-500 font-bold">Home</a></li>
+                    <li><a href="about.html" class="text-white hover:text-blue-500 font-bold">About</a></li>
+                    <li><a href="skill.html" class="text-white hover:text-blue-500 font-bold">Skills</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <img src="img/opr.PNG" alt="Background" class="fixed-image-right" style="top: 15%; right: 2%; height: 77vh;">
+
+    <!-- Intro Section -->
+    <section class="h-[60vh] flex items-center justify-start pl-10">
+        <h1 class="intro-text text-4xl md:text-5xl lg:text-6xl">
+            Welcome <span class="nigeria">to my portfolio</span> <br />
+            <span class="text-2xl md:text-3xl lg:text-4xl">Do you
+                need more help?</span>
+        </h1>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section fade-in" style="margin-top: 20px;">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-box">
+                <div class="faq-question">How can I get in touch with you?</div>
+                <div class="faq-answer">You can reach me directly through the contact form below or via email/phone
+                    listed in the footer.</div>
+            </div>
+            <div class="faq-box">
+                <div class="faq-question">What services do you offer?</div>
+                <div class="faq-answer">I provide comprehensive UI/UX design and front-end development services tailored
+                    to create intuitive digital experiences.</div>
+            </div>
+            <div class="faq-box">
+                <div class="faq-question">What does a Digital Asset Engineer do?</div>
+                <div class="faq-answer">
+                    As a Digital Asset Engineer, I optimize and manage your digital assets—ensuring that your online
+                    resources are efficient, secure, and impactful. This role enhances both design and functionality,
+                    improving your digital presence.
+                </div>
+            </div>
+
+            <div class="faq-box">
+                <div class="faq-question">Can I request a custom project?</div>
+                <div class="faq-answer">Absolutely—I'm open to discussing custom projects to bring your unique vision to
+                    life.</div>
+            </div>
+            <div class="faq-box">
+                <div class="faq-question">What is your turnaround time?</div>
+                <div class="faq-answer">Turnaround times vary based on project scope. Please contact me directly for
+                    detailed timelines and quotes.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- "Need More Help?" Fancy Box -->
+    <section class="help-box fade-in" style="margin-top: 20px;">
+        Need more help? Reach out directly or check out the FAQs above.
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="fade-in"
+        style="background-color: black; padding: 40px 5%; margin-top: 20px; border-radius: 8px;">
+        <h2 class="text-2xl font-semibold mb-4 text-white">Contact Me</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required
+                class="p-3 bg-gray-800 text-white rounded-lg mb-4 w-full border-2 border-[#f30f48] shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#f30f48]">
+            <input type="email" placeholder="Your Email" required
+                class="p-3 bg-gray-800 text-white rounded-lg mb-4 w-full border-2 border-[#f30f48] shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#f30f48]">
+            <textarea placeholder="Your Message" required
+                class="p-3 bg-gray-800 text-white rounded-lg mb-4 w-full h-40 border-2 border-[#f30f48] shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#f30f48]"></textarea>
+            <div class="flex justify-between gap-2">
+                <button type="submit"
+                    class="btn-submit p-3 rounded-lg bg-[#f30f48] text-white font-bold hover:bg-[#e02036] flex-1 shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#f30f48]">Send
+                    Message</button>
+                <a href="cv.file/CV- Funbi Akintade.pdf" download>
+                    <button type="button"
+                        class="btn-download p-3 rounded-lg bg-[#f30f48] text-white font-bold hover:bg-[#e02036] flex-1 shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#f30f48]">Download
+                        CV</button>
+                </a>
+            </div>
+        </form>
+    </section>
+
+    <footer
+        style="background-color: black; color: white; padding: 40px 5%; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 200px;">
+        <div class="footer-text" style="margin-bottom: 20px;">
+            <p>&copy; 2025 Funbi Akintade. All rights reserved.</p>
+            <p>Phone: +234-702-5511-392 | Email: <a href="mailto:Ayipexfunby@gmail.com"
+                    style="color: #f30f48;">Ayipexfunby@gmail.com</a></p>
+        </div>
+        <div class="social-icons" style="display: flex; gap: 15px;">
+            <a href="https://www.linkedin.com/in/funbi-akintade-59a4ba237?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                target="_blank">
+                <img src="https://img.icons8.com/ios-filled/40/ffffff/linkedin.png" alt="LinkedIn" />
+            </a>
+            <a href="https://www.instagram.com/oluwafunbilayorr?igsh=cGlwNGt1OXl4YmEz&utm_source=qr" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/40/ffffff/instagram-new.png" alt="Instagram" />
+            </a>
+            <a href="mailto:Ayipexfunby@gmail.com">
+                <img src="https://img.icons8.com/ios-filled/40/ffffff/email.png" alt="Email" />
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeElements = document.querySelectorAll(".fade-in");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.2 });
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        emailjs.init("DWOvyty0GTFHkYl6A"); // Replace with your actual Public Key
+
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            
+            let formData = {
+                from_name: document.querySelector("input[name='from_name']").value,
+                from_email: document.querySelector("input[name='from_email']").value,
+                message: document.querySelector("textarea[name='message']").value
+            };
+
+            emailjs.send("service_upvgnsg", "template_znk4562", formData)
+                .then(function (response) {
+                    alert("Message sent successfully!");
+                    console.log("Success:", response);
+                    document.getElementById("contactForm").reset(); // Reset form after submission
+                }, function (error) {
+                    alert("Failed to send message. Please try again.");
+                    console.log("Error:", error);
+                });
+        });
+    });
+</script>
+   
+</body>
+
+</html>

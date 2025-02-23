@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funbi Akintade - UI/UX & Front-End Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/heroicons@2.0.18/outline/index.js"></script>
+    <style>
+        @keyframes magic3d {
+            0% {
+                opacity: 0;
+                transform: perspective(600px) rotateX(0deg) translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: perspective(600px) rotateX(0deg) translateY(0);
+            }
+
+        }
+
+        /* Apply the new animation when the element becomes visible */
+        .fade-in.visible {
+            animation: magic3d 0.8s ease-out forwards;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fixed-image-right {
+            position: fixed;
+            top: 10%;
+            right: 5%;
+            height: 70vh;
+            width: auto;
+            z-index: -1;
+        }
+
+        section {
+            margin-top: 120px;
+            padding: 50px 10%;
+            text-align: left;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: black;
+            padding: 16px 40px;
+            z-index: 20;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        header img {
+            height: 8rem;
+            z-index: 21;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 21;
+        }
+
+        .navbar-left a {
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar-left a:hover {
+            color: #f30f48;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 21;
+        }
+
+        .navbar-right a {
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar-right a:hover {
+            color: #f30f48;
+        }
+
+        .intro-text {
+            text-align: left;
+            max-width: 700px;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .intro-text .nigeria {
+            color: #f30f48;
+        }
+
+        #about {
+            background-color: black;
+            color: white;
+            padding: 80px 10%;
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: row;
+        }
+
+        #about img {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 250px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            margin-right: 40px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #about img:hover {
+            transform: scale(1.05);
+        }
+
+        #about .text-container {
+            max-width: 600px;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin-top: 60px;
+            height: 80px;
+            /* Same height as navbar */
+        }
+
+        footer .footer-logo {
+            height: 50px;
+        }
+
+        footer .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+            transform: scale(1);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #38bdf8;
+            transform: scale(1.2);
+        }
+
+        footer .footer-text {
+            font-size: 1rem;
+            max-width: 600px;
+            color: #d1d5db;
+        }
+
+        footer .footer-text a {
+            color: #38bdf8;
+        }
+
+        footer .footer-text a:hover {
+            color: #f30f48;
+        }
+
+        #skills {
+            background-color: #f30f48;
+            /* Pink background */
+            color: white;
+            padding: 50px 5%;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            width: 90%;
+            max-width: 1200px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #projects {
+            background-color: #000000;
+            /* Pink background */
+            color: white;
+            padding: 50px 5%;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            width: 90%;
+            max-width: 1200px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #contact {
+            background-color: #f30f48;
+            /* Pink background */
+            color: white;
+            padding: 50px 5%;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            width: 90%;
+            max-width: 1200px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grid div {
+            background-color: black;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 3px solid #f30f48;
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .grid div:hover {
+            box-shadow: 0 0 20px #f30f48;
+            transform: translateY(-5px);
+        }
+
+        .grid div h3 {
+            text-decoration: underline;
+            text-decoration-color: #998e92;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 2px;
+        }
+
+
+        #contact:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 2rem;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #38bdf8;
+        }
+
+        .left-aligned-section {
+            text-align: left;
+            max-width: 700px;
+        }
+
+        /* Add some spacing around the text */
+        #skills ul,
+        #projects ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #skills li,
+        #projects li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+    <header class="flex justify-between items-center transition-all">
+        <div class="navbar-left">
+            <img src="img/Black And White Minimalist Typography Personal Logo (1).png" alt="Logo" class="navbar-img"
+                style="height: 7rem;">
+        </div>
+        <div class="navbar-right">
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="about.html" class="text-white hover:text-blue-500 font-bold">About</a></li>
+                    <li><a href="skill.html" class="text-white hover:text-blue-500 font-bold">Skills</a></li>
+                    <li><a href="contact.html" class="text-white hover:text-blue-500 font-bold">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <img src="img/opr.PNG" alt="Background" class="fixed-image-right" style="top: 15%; right: 2%; height: 77vh;">
+
+
+
+    <section class="h-[60vh] flex items-center justify-start pl-10">
+        <h1 class="intro-text text-4xl md:text-5xl lg:text-6xl">
+            Hi, I am <span class="nigeria">Funbi</span> <span class="text-white">Akintade</span><br>
+            <span class="nigeria">A Dgital Asset Engineer</span><br>
+            & <span class="text-white">Front-End</span> <span class="nigeria">Developer</span>
+        </h1>
+    </section>
+
+    <section id="about"
+        class="fade-in relative w-full max-w-4xl mx-auto my-10 p-6 border-2 rounded-lg bg-gray-900/70 transition-transform transform hover:-translate-y-1 hover:shadow-xl"
+        style="border-color: #f30f48;">
+
+        <div class="text-container text-center md:text-left">
+            <h2 class="text-3xl font-bold" style="color: #f30f48;">Welcome to My Digital World! 🚀</h2>
+
+            <p class="text-lg mb-4">
+                As a passionate UI/UX designer and front-end developer, I’m all about creating digital experiences that
+                not only look amazing but also work seamlessly. I believe in designs that speak to the user and code
+                that brings those designs to life. 💻🎨
+            </p>
+            <p class="text-lg mb-4">
+                Let's turn great ideas into smooth, user-friendly experiences. Want to know more about how I work? Feel
+                free to dive deeper into my story and expertise!
+            </p>
+            <div class="mt-6">
+                <a href="about.html"
+                    class="px-6 py-2 text-white font-semibold rounded-lg bg-[#f30f48] hover:bg-[#e02036] transition-colors">Read
+                    More</a>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="projects" class="left-aligned-section fade-in"
+        style="border: 2px solid #f30f48; padding: 50px 5%; border-radius: 8px;">
+        <h2 class="text-2xl font-semibold mb-4">Projects</h2>
+        <ul class="space-y-3">
+            <li><strong>Redesign of HealHubCenter.org</strong> - Improved UI/UX for better accessibility and engagement.
+            </li>
+            <li><strong>Interactive Mental Health Assessment Tool</strong> - Designed and developed a user-friendly
+                self-assessment tool.</li>
+            <li><strong>E-Commerce Website Prototype</strong> - Created a high-fidelity prototype for an online store.
+            </li>
+            <li><strong>Portfolio Website</strong> - Built and designed a personal portfolio showcasing UI/UX projects.
+            </li>
+        </ul>
+    </section>
+    <section id="skills" class="fade-in"
+        style="background-color: black; border: 2px solid #f30f48; padding: 50px 5%; border-radius: 8px;">
+        <div class="flex flex-col md:flex-row gap-10">
+            <!-- Left Column: Technical Skills -->
+            <div class="w-full md:w-1/2">
+                <h2 class="text-3xl font-bold mb-4 border-b-2 border-[#f30f48] inline-block" style="color: #f30f48;">
+                    Technical Skills</h2>
+                <div class="space-y-6">
+                    <!-- HTML Skill -->
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full">
+                            <img src="img/html.png" alt="HTML" class="w-6 h-6">
+                        </div>
+                        <div class="w-full">
+                            <p class="font-bold" style="color: #f30f48;">HTML - 91%</p>
+                            <div class="w-full bg-gray-600 rounded-full h-2">
+                                <div class="bg-[#f30f48] h-2 rounded-full" style="width: 91%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CSS Skill -->
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full">
+                            <img src="img/css.png" alt="CSS" class="w-6 h-6">
+                        </div>
+                        <div class="w-full">
+                            <p class="font-bold" style="color: #f30f48;">CSS - 88%</p>
+                            <div class="w-full bg-gray-600 rounded-full h-2">
+                                <div class="bg-[#f30f48] h-2 rounded-full" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- JavaScript Skill -->
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full">
+                            <img src="img/javascript.png" alt="JavaScript" class="w-6 h-6">
+                        </div>
+                        <div class="w-full">
+                            <p class="font-bold" style="color: #f30f48;">JavaScript - 76%</p>
+                            <div class="w-full bg-gray-600 rounded-full h-2">
+                                <div class="bg-[#f30f48] h-2 rounded-full" style="width: 76%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- UI/UX Skill -->
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full">
+                            <img src="img/uiux.png" alt="UI/UX" class="w-6 h-6">
+                        </div>
+                        <div class="w-full">
+                            <p class="font-bold" style="color: #f30f48;">UI/UX - 92%</p>
+                            <div class="w-full bg-gray-600 rounded-full h-2">
+                                <div class="bg-[#f30f48] h-2 rounded-full" style="width: 92%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Analytical Skills -->
+            <div class="w-full;// md:w-1/3">
+                <h2 class="text-3xl font-bold mb-4 border-b-2 border-[#f30f48] inline-block" style="color: #f30f48;">
+                    Analytical Skills</h2>
+                <div class="flex flex-wrap gap-6">
+                    <!-- Skill Circle 1: Front-End Dev -->
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-20 h-20 rounded-full border-2 border-[#f30f48] shadow-xl flex items-center justify-center">
+                            <span class="font-bold" style="color: #f30f48;">85%</span>
+                        </div>
+                        <p class="mt-2" style="color: #f30f48;">Front-End Dev</p>
+                    </div>
+                    <!-- Skill Circle 2: Responsive Web Design -->
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-20 h-20 rounded-full border-2 border-[#f30f48] shadow-xl flex items-center justify-center">
+                            <span class="font-bold" style="color: #f30f48;">90%</span>
+                        </div>
+                        <p class="mt-2" style="color: #f30f48;">Responsive Web Design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Digital Asset Engineer Section -->
+    <section id="digital-asset-engineer" class="fade-in relative"
+        style="background-color: black; padding: 60px 5%; margin-top: 40px; border-radius: 12px; border: 1px solid #f30f48;">
+
+        <h2 class="text-4xl font-bold text-white text-center mb-6 uppercase tracking-wide">
+            Digital Asset Engineer
+        </h2>
+
+        <p class="text-lg text-gray-300 text-center leading-relaxed max-w-3xl mx-auto">
+            I specialize in Web Development, UI/UX Design, and Product Strategy to create seamless, high-performing
+            digital solutions. My expertise ensures **functionality, efficiency, and user engagement.
+        </p>
+
+        <!-- Expertise Section -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300 text-lg">
+
+            <div class="bg-black p-6 rounded-lg shadow-md border-l-2 border-[#f30f48]">
+                <h3 class="text-xl font-semibold text-white mb-2">💻 Web Development</h3>
+                <p>
+                    Developing modern, responsive, high-performance websites using HTML, CSS, JavaScript, and
+                    React with a focus on clean UI, accessibility, and efficiencY.
+                </p>
+            </div>
+
+            <div class="bg-black p-6 rounded-lg shadow-md border-l-2 border-[#f30f48]">
+                <h3 class="text-xl font-semibold text-white mb-2">UI/UX & Product Design</h3>
+                <p>
+                    Designing user-centric interfaces with Figma & Adobe XD, ensuring intuitive, visually
+                    appealing experiences that align with business goals.
+                </p>
+            </div>
+
+
+            <div class="bg-black p-6 rounded-lg shadow-md border-l-2 border-[#f30f48]">
+                <h3 class="text-xl font-semibold text-white mb-2">Front-End Engineering</h3>
+                <p>
+                    Writing efficient, scalable code to bring designs to life, specializing in React, Tailwind
+                    CSS, and JavaScript frameworks.
+                </p>
+            </div>
+
+
+            <div class="bg-black p-6 rounded-lg shadow-md border-l-2 border-[#f30f48]">
+                <h3 class="text-xl font-semibold text-white mb-2">Digital Product Strategy</h3>
+                <p>
+                    Combining UX research, branding, and optimization to create high-value digital products that
+                    meet user needs and business goals.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="text-center mt-8">
+            <a href="cv.file/CV- Funbi Akintade.pdf" download
+                class="inline-block bg-[#f30f48] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#e02036] transition duration-300">
+                Download My CV
+            </a>
+        </div>
+    </section>
+
+
+    </a>
+    </div>
+    </form>
+    </section>
+
+
+
+
+    <footer
+        style="background-color: black; color: white; padding: 40px 5%; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 200px;">
+        <div class="footer-text" style="margin-bottom: 20px;">
+            <p>&copy; 2025 Funbi Akintade. All rights reserved.</p>
+            <p>Phone: +234-702-5511-392 | Email: <a href="mailto:Ayipexfunby@gmail.com"
+                    style="color: #f30f48;">Ayipexfunby@gmail.com</a></p>
+        </div>
+        <div class="social-icons" style="display: flex; gap: 15px;">
+            <a href="https://www.linkedin.com/in/funbi-akintade-59a4ba237?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                target="_blank">
+                <img src="https://img.icons8.com/ios-filled/40/ffffff/linkedin.png" alt="LinkedIn" />
+            </a>
+            <a href="https://www.instagram.com/oluwafunbilayorr?igsh=cGlwNGt1OXl4YmEz&utm_source=qr" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/40/ffffff/instagram-new.png" alt="Instagram" />
+            </a>
+            <a href="mailto:Ayipexfunby@gmail.com">
+                <img src="https://img.icons8.com/ios-filled/40/ffffff/email.png" alt="Email" />
+            </a>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeElements = document.querySelectorAll(".fade-in");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

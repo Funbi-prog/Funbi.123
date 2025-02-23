@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Funbi Akintade</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts: Using the same as Home -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Define a CSS variable for the primary pink color */
+    :root {
+      --primary-pink: #f30f48;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      padding-top: 80px; /* Space for fixed navbar */
+    }
+
+    /* Navbar styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: black;
+      padding: 5px 20px; /* Reduced vertical padding */
+      z-index: 10;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Increase the logo size (bolder image) but keep the navbar compact */
+    .navbar-left img {
+      height: 50px;
+    }
+
+    .navbar-right ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .navbar-right a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+
+    .navbar-right a:hover {
+      color: var(--primary-pink);
+    }
+
+    /* Sidebar styles (Full page) */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100vh; /* Full viewport height */
+      background-color: #080808;
+      padding-top: 100px; /* Push sidebar content down below the navbar */
+      padding-bottom: 20px;
+      border-right: 2px solid var(--primary-pink);
+      z-index: 5;
+      overflow-y: auto;
+    }
+
+    .sidebar img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 20px auto;
+      display: block;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid #444;
+      text-align: center;
+    }
+
+    .sidebar a:hover {
+      background-color: #444;
+      color: var(--primary-pink);
+    }
+
+    /* Content container (shifted down a bit to avoid the top edge) */
+    .content {
+      margin-left: 260px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    /* Section highlighted boxes */
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 2px solid #444;
+      border-radius: 8px;
+      background-color: #050505;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Fancy pop-in animation */
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+      }
+      80% {
+        opacity: 1;
+        transform: translateY(-2px) scale(1.02);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+    }
+
+    .fade-in.visible {
+      animation: popIn 0.8s ease-out forwards;
+    }
+
+    /* Footer */
+    footer {
+      background-color: black;
+      color: white;
+      padding: 20px 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 150px;
+      font-size: 14px;
+    }
+
+    /* Mobile-friendly changes */
+    @media (max-width: 768px) {
+      .navbar-right ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px; /* Hide sidebar off-screen */
+        height: 100vh;
+        transition: 0.3s ease;
+        padding-top: 100px; /* Ensure content doesn't clash with header */
+      }
+
+      .sidebar.open {
+        left: 0;
+      }
+
+      .sidebar a {
+        padding: 10px;
+        border-bottom: 1px solid #444;
+      }
+
+      .content {
+        margin-left: 0;
+        padding: 15px;
+        margin-top: 100px; /* Add extra margin for mobile to avoid fixed header overlap */
+      }
+
+      /* Hamburger menu */
+      .hamburger {
+        display: block;
+        cursor: pointer;
+      }
+
+      .hamburger div {
+        width: 30px;
+        height: 4px;
+        background-color: white;
+        margin: 5px 0;
+      }
+
+      .navbar-left img {
+        height: 35px; /* Adjusted for mobile */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="flex justify-between items-center">
+    <div class="navbar-left">
+      <img src="img/Black And White Minimalist Typography Personal Logo (1).png" alt="Logo"  style="height: 5rem;">
+    </div>
+    <div class="navbar-right">
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="Port.html" class="hover:text-[#f30f48]">Home</a></li>
+          <li><a href="skill.html" class="hover:text-[#f30f48]">Skills</a></li>
+          <li><a href="contact.html" class="hover:text-[#f30f48]">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="hamburger lg:hidden" onclick="toggleSidebar()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <div class="flex">
+    <!-- Sidebar (Left Section) -->
+    <div id="sidebar" class="sidebar">
+      <!-- Image inside Sidebar -->
+      <img src="img/oppggg.PNG" alt="Your Image" />
+      <!-- Sidebar Menu Items -->
+      <a href="#introduction">Introduction</a>
+      <a href="#background">Background</a>
+      <a href="#impact">Innovation</a>
+      <a href="#expertise">Expertise</a>
+    </div>
+
+    <!-- Right Content Section -->
+    <div class="content">
+      <!-- Introduction Section -->
+      <section id="introduction" class="section fade-in visible">
+        <h2 class="text-3xl font-semibold mb-4" style="color: var(--primary-pink);">Introduction</h2>
+        <p class="text-base leading-relaxed mb-4">
+            Hello and welcome! I’m Funbi Akintade—a passionate designer developer dedicated to transforming ideas into immersive digital experiences.
+          </p>
+          <p class="text-base leading-relaxed mb-4">
+            Passionate about transforming ideas into seamless digital experiences, I am focused on crafting user-friendly, aesthetically pleasing, and functional interfaces.
+          </p>
+          <p class="text-base leading-relaxed mb-4">
+            With a strong foundation in research-driven design, accessibility, and innovation, I create intuitive designs that engage and inspire. My goal is to ensure every user interaction is intuitive, seamless, and meaningful.
+          </p>
+          <p class="text-base leading-relaxed mb-4">
+            My journey into web development was fueled by an unshakable desire to prove my capabilities. After being underestimated, I set out to showcase my true potential and the impact I can make through design.
+          </p>
+          <p class="text-base leading-relaxed mb-4">
+            Today, I channel that passion into building impactful, visually compelling digital solutions. Every project I take on is an opportunity to create something that not only meets the user's needs but also exceeds their expectations.
+          </p>
+          
+      </section>
+
+      <!-- Background Section -->
+      <section id="background" class="section fade-in visible">
+        <h2 class="text-3xl font-semibold mb-4" style="color: var(--primary-pink);">Background</h2>
+        <p class="text-base leading-relaxed mb-4">
+            I hold a BSc in Geography and Environmental Management from the University of Ilorin, where I studied the intricacies of the environment, human impact, and sustainable development. Throughout my academic journey, I gained a deeper understanding of how interconnected human societies are with the natural world and how we can design systems that respect and preserve it.
+          </p>
+          
+          <p class="text-base leading-relaxed mb-4">
+            During my studies, I learned how essential sustainability practices are in today’s world. In fact, the more I learned about environmental management, the more I realized how crucial it is to incorporate innovative, sustainable practices in all areas of life – including technology and design.
+          </p>
+          
+          <p class="text-base leading-relaxed mb-4">
+            My background in environmental management has led me to realize that UI/UX design can play a crucial role in promoting sustainable behaviors. By creating intuitive, engaging interfaces that educate users about sustainability, we can encourage people to make eco-friendly choices. As a UI/UX designer, I aim to blend design principles with sustainability to create impactful, user-centered solutions that make a positive environmental impact.
+          </p>
+          
+          <p class="text-base leading-relaxed mb-4">
+            Through my work, I strive to contribute to the global conversation on sustainability by developing designs that improve resource efficiency, and promote positive environmental practices. I believe that by creating user-friendly tools that simplify sustainability efforts, I can make a real difference.
+          </p>
+          
+          <p class="text-base leading-relaxed mb-4">
+            In my role as a UI/UX designer, I am constantly looking for ways to merge my passion for design with my commitment to sustainability. Whether it’s creating green-tech applications, platforms for sustainable development, or websites that educate users on eco-friendly practices, I believe my background in Geography and Environmental Management has uniquely positioned me to drive change through design.
+          </p>
+          
+        
+        </section>
+      </section>
+
+      <!-- Innovation Section -->
+      <section id="innovation" class="section fade-in visible">
+        <h2 class="text-3xl font-semibold mb-4" style="color: var(--primary-pink);">Innovation & Impact</h2>
+        <p class="text-base leading-relaxed mb-4">
+          As a UI/UX designer, I strive to push the boundaries of design to deliver innovative digital experiences. I believe that the future of technology is not just about functionality but about creating meaningful, engaging, and inclusive experiences. My innovative approach integrates new technologies like AI and machine learning to enhance user interaction and streamline design processes.
+        </p>
+      </section>
+
+      <!-- Expertise Section -->
+      <section id="expertise" class="section fade-in visible">
+        <h2 class="text-3xl font-semibold mb-4" style="color: var(--primary-pink);">Expertise</h2>
+        <ul class="list-disc pl-5 text-base leading-relaxed">
+          <li>UX Research & Design</li>
+          <li>UI Design & Prototyping</li>
+          <li>Front-End Development (HTML, CSS, JavaScript, React)</li>
+          <li>Responsive Web Design & Accessibility</li>
+          <li>Wireframing & Prototyping (Figma, Adobe XD)</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <footer
+  style="background-color: black; color: white; padding: 40px 5%; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 200px;">
+  <div class="footer-text" style="margin-bottom: 20px;">
+      <p>&copy; 2025 Funbi Akintade. All rights reserved.</p>
+      <p>Phone: +234-702-5511-392 | Email: <a href="mailto:Ayipexfunby@gmail.com"
+              style="color: #f30f48;">Ayipexfunby@gmail.com</a></p>
+  </div>
+  <div class="social-icons" style="display: flex; gap: 15px;">
+      <a href="https://www.linkedin.com/in/funbi-akintade-59a4ba237?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+          target="_blank">
+          <img src="https://img.icons8.com/ios-filled/40/ffffff/linkedin.png" alt="LinkedIn" />
+      </a>
+      <a href="https://www.instagram.com/oluwafunbilayorr?igsh=cGlwNGt1OXl4YmEz&utm_source=qr" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/40/ffffff/instagram-new.png" alt="Instagram" />
+      </a>
+      <a href="mailto:Ayipexfunby@gmail.com">
+          <img src="https://img.icons8.com/ios-filled/40/ffffff/email.png" alt="Email" />
+      </a>
+  </div>
+</footer>
+  <!-- JS: Sidebar toggle -->
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+  </script>
+</body>
+
+</html>

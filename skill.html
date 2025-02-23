@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funbi Akintade - UI/UX & Front-End Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/heroicons@2.0.18/outline/index.js"></script>
+  <link rel="stylesheet" href="port.css" />
+  <style>
+    /* Slide-up animation */
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .slide-up {
+      animation: slideUp 1s ease-out forwards;
+    }
+
+    /* Fade-in animation (magic3d) */
+    @keyframes magic3d {
+      0% {
+        opacity: 0;
+        transform: perspective(600px) rotateX(0deg) translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: perspective(600px) rotateX(0deg) translateY(0);
+      }
+    }
+
+    .fade-in.visible {
+      animation: magic3d 0.8s ease-out forwards;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Header & Footer styling */
+    header,
+    footer {
+      background-color: black;
+      padding: 8px 20px;
+      /* Reduced padding */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    header img {
+      height: 5rem;
+      /* Smaller logo */
+    }
+
+    .navbar-left a,
+    .navbar-right a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .navbar-left a:hover,
+    .navbar-right a:hover {
+      color: #f30f48;
+    }
+
+    footer {
+      flex-direction: column;
+      align-items: center;
+      min-height: 150px;
+    }
+
+    .footer-text a:hover {
+      color: #f30f48;
+    }
+
+    /* Custom styles for Skill Cards with illuminating effect */
+    .illuminate {
+      box-shadow: 0 0 20px rgba(243, 15, 72, 0.4);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .illuminate:hover {
+      box-shadow: 0 0 30px rgba(243, 15, 72, 0.6);
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    /* Clean heading style for skill cards */
+    .skill-card h2 {
+      letter-spacing: 1px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Soften border color */
+    .soft-border {
+      border-color: rgba(243, 15, 72, 0.7);
+    }
+
+    /* Custom bullet styling */
+    .custom-bullet {
+      list-style-type: disc;
+    }
+
+    .custom-bullet li::marker {
+      color: #f30f48;
+    }
+
+    /* Project item styling */
+    .project-item {
+      padding: 20px;
+      background-color: #111;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(243, 15, 72, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(243, 15, 72, 0.5);
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      color: #f30f48;
+      margin-bottom: 10px;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="navbar-left">
+      <img src="img/Black And White Minimalist Typography Personal Logo (1).png" alt="Logo" />
+    </div>
+    <div class="navbar-right">
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="Port.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main class="skills-container pt-28 px-10">
+
+    <section class="relative text-center mb-12 overflow-hidden">
+      <div class="absolute inset-0 bg-cover bg-center opacity-30 filter blur-sm"
+        style="background-image: url('img/Moda_app_-_YULIIA_MEI__1_-removebg-preview.png');"></div>
+      <div class="relative z-10 slide-up">
+        <h1 class="text-5xl font-bold text-[#f30f48] mb-4 animate-pulse">Skills &amp; Expertise</h1>
+        <p class="text-lg max-w-3xl mx-auto">
+          As a dedicated front-end developer and product designer, I specialize in crafting seamless, accessible, and
+          visually compelling user experiences.
+          My expertise spans multiple domains, ensuring high-impact digital solutions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Grid -->
+    <div class="skills-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- UX/UI Design Section -->
+      <div
+        class="skill-card illuminate p-6 bg-black rounded-lg shadow-2xl transition transform hover:-translate-y-2 hover:scale-105 slide-up">
+        <h2 class="text-2xl font-bold text-[#f30f48] mb-2">UX/UI Design</h2>
+        <p class="mb-3">Designing intuitive, accessible, and engaging digital experiences.</p>
+        <ul class="custom-bullet ml-5 mb-3 text-sm">
+          <li>Figma &amp; Adobe XD</li>
+          <li>User Research &amp; Testing</li>
+          <li>Wireframing &amp; Prototyping</li>
+          <li>Accessibility &amp; Design Systems</li>
+        </ul>
+        <div class="skill-image mt-4">
+          <img src="img/homeappear.jpeg" alt="UX/UI Design Showcase" class="w-full rounded-lg shadow-md" />
+        </div>
+      </div>
+
+      <!-- Front-End Development Section -->
+      <div
+        class="skill-card illuminate p-6 bg-black rounded-lg shadow-2xl transition transform hover:-translate-y-2 hover:scale-105 slide-up">
+        <h2 class="text-2xl font-bold text-[#f30f48] mb-2">Front-End Development</h2>
+        <p class="mb-3">Building responsive and high-performance web applications.</p>
+        <ul class="custom-bullet ml-5 mb-3 text-sm">
+          <li>HTML, CSS, JavaScript</li>
+          <li>React.js &amp; Component-Based Architecture</li>
+          <li>Responsive &amp; Interactive Web Design</li>
+          <li>Web Accessibility Standards (WCAG)</li>
+        </ul>
+        <div class="skill-image mt-4">
+          <img src="img/figmARA.png" alt="Front-End Development Showcase" class="w-full rounded-lg shadow-md" />
+        </div>
+      </div>
+
+      <!-- Product & Project Management Section -->
+      <div
+        class="skill-card illuminate p-6 bg-black rounded-lg shadow-2xl transition transform hover:-translate-y-2 hover:scale-105 slide-up">
+        <h2 class="text-2xl font-bold text-[#f30f48] mb-2">Product &amp; Project Management</h2>
+        <p class="mb-3">Leading and managing cross-functional projects with a strategic, results-driven approach.</p>
+        <ul class="custom-bullet ml-5 mb-3 text-sm">
+          <li>Trello &amp; Relume</li>
+          <li>Agile &amp; Scrum Methodologies</li>
+          <li>Team Leadership &amp; Collaboration</li>
+          <li>Strategic Planning &amp; Execution</li>
+        </ul>
+        <div class="skill-image mt-4">
+          <img src="img/UIUX_showcase-removebg-preview.png" alt="Project Management Showcase"
+            class="w-full rounded-lg shadow-md" />
+        </div>
+      </div>
+
+      <!-- Design Thinking & Problem-Solving Section -->
+      <div
+        class="skill-card illuminate p-6 bg-black rounded-lg shadow-2xl transition transform hover:-translate-y-2 hover:scale-105 slide-up">
+        <h2 class="text-2xl font-bold text-[#f30f48] mb-2">Design Thinking &amp; Problem-Solving</h2>
+        <p class="mb-3">Applying human-centered design principles to create impactful solutions.</p>
+        <ul class="custom-bullet ml-5 mb-3 text-sm">
+          <li>Empathy Mapping &amp; Ideation</li>
+          <li>Usability Testing &amp; Feedback Loops</li>
+          <li>Data-Driven Decision Making</li>
+          <li>Prototyping &amp; Iterative Design</li>
+        </ul>
+        <div class="skill-image mt-4">
+          <img src="img/Smart_Home_App-removebg-preview.png" alt="Design Thinking Showcase"
+            class="w-full rounded-lg shadow-md" />
+        </div>
+      </div>
+
+      <!-- Data Analytics & Visualization Section -->
+      <div
+        class="skill-card illuminate p-6 bg-black rounded-lg shadow-2xl transition transform hover:-translate-y-2 hover:scale-105 slide-up">
+        <h2 class="text-2xl font-bold text-[#f30f48] mb-2">Data Analytics &amp; Visualization</h2>
+        <p class="mb-3">Leveraging analytics to drive product improvements and business insights.</p>
+        <ul class="custom-bullet ml-5 mb-3 text-sm">
+          <li>Google Analytics &amp; Heatmaps</li>
+          <li>Data Interpretation &amp; A/B Testing</li>
+          <li>Interactive Data Visualization</li>
+          <li>User Behavior Tracking</li>
+        </ul>
+        <div class="skill-image mt-4">
+          <img src="img/Task_Manager_Mobile_App-removebg-preview.png" alt="Data Analytics Showcase"
+            class="w-full rounded-lg shadow-md" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Projects Section -->
+    <section class="mt-12 mb-12 fade-in">
+      <h2 class="text-4xl font-bold text-[#f30f48] text-center mb-8">Featured Projects</h2>
+      <p class="text-lg max-w-3xl mx-auto mb-6 text-center">
+        My projects are a living testament to my technical expertise and creative problem-solving. Each project blends
+        advanced design principles with cutting-edge front-end development, transforming abstract ideas into tangible,
+        user-centered digital solutions. For example, my e-commerce platform demonstrates my ability to create a
+        seamless, accessible user experience while balancing performance and aesthetics.
+      </p>
+      <div id="github-project" class="grid grid-cols-1 gap-8"></div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="mt-12 mb-12 fade-in">
+      <h2 class="text-4xl font-bold text-[#f30f48] text-center mb-8">My Tech Stack</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <!-- HTML Icon -->
+        <div class="flex flex-col items-center">
+          <img src="img/html.png" alt="HTML" class="w-16 h-16 transition-transform hover:scale-110" />
+          <span class="mt-2">HTML</span>
+          <div class="w-full bg-gray-800 rounded-full mt-1">
+            <div class="bg-[#f30f48] text-xs font-medium text-center p-0.5 leading-none rounded-full"
+              style="width: 90%;">90%</div>
+          </div>
+        </div>
+        <!-- CSS Icon -->
+        <div class="flex flex-col items-center">
+          <img src="img/css.png" alt="CSS" class="w-16 h-16 transition-transform hover:scale-110" />
+          <span class="mt-2">CSS</span>
+          <div class="w-full bg-gray-800 rounded-full mt-1">
+            <div class="bg-[#f30f48] text-xs font-medium text-center p-0.5 leading-none rounded-full"
+              style="width: 85%;">85%</div>
+          </div>
+        </div>
+        <!-- JavaScript Icon -->
+        <div class="flex flex-col items-center">
+          <img src="img/javascript.png" alt="JavaScript" class="w-16 h-16 transition-transform hover:scale-110" />
+          <span class="mt-2">JavaScript</span>
+          <div class="w-full bg-gray-800 rounded-full mt-1">
+            <div class="bg-[#f30f48] text-xs font-medium text-center p-0.5 leading-none rounded-full"
+              style="width: 80%;">80%</div>
+          </div>
+        </div>
+        <!-- React Icon -->
+        <div class="flex flex-col items-center">
+          <img src="img/react99.png" alt="React" class="w-16 h-16 transition-transform hover:scale-110" />
+          <span class="mt-2">React</span>
+          <div class="w-full bg-gray-800 rounded-full mt-1">
+            <div class="bg-[#f30f48] text-xs font-medium text-center p-0.5 leading-none rounded-full"
+              style="width: 75%;">75%</div>
+          </div>
+        </div>
+        <!-- Figma Icon -->
+        <div class="flex flex-col items-center">
+          <img src="img/R.png" alt="Figma" class="w-16 h-16 transition-transform hover:scale-110" />
+          <span class="mt-2">Figma</span>
+          <div class="w-full bg-gray-800 rounded-full mt-1">
+            <div class="bg-[#f30f48] text-xs font-medium text-center p-0.5 leading-none rounded-full"
+              style="width: 85%;">85%</div>
+          </div>
+        </div>
+        <!-- Git Icon -->
+        <div class="flex flex-col items-center">
+          <img src="img/github.jpg" alt="Git" class="w-16 h-16 transition-transform hover:scale-110" />
+          <span class="mt-2">Git</span>
+          <div class="w-full bg-gray-800 rounded-full mt-1">
+            <div class="bg-[#f30f48] text-xs font-medium text-center p-0.5 leading-none rounded-full"
+              style="width: 70%;">70%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with Reduced Height -->
+  <footer class="mt-16 bg-black text-center py-2 border-t border-gray-700">
+    <div class="footer-text mb-2">
+      <p>&copy; 2025 Funbi Akintade. All rights reserved.</p>
+      <p>Phone: +234-702-5511-392 | Email: <a href="mailto:Ayipexfunby@gmail.com"
+          class="text-[#f30f48] hover:text-[#f30f48]">Ayipexfunby@gmail.com</a></p>
+    </div>
+    <div class="social-icons flex justify-center space-x-6">
+      <a href="https://www.linkedin.com/in/funbi-akintade-59a4ba237" target="_blank" class="hover:text-[#f30f48]">
+        <img src="https://img.icons8.com/ios-filled/40/ffffff/linkedin.png" alt="LinkedIn" />
+      </a>
+      <a href="https://www.instagram.com/oluwafunbilayorr" target="_blank" class="hover:text-[#f30f48]">
+        <img src="https://img.icons8.com/ios-filled/40/ffffff/instagram-new.png" alt="Instagram" />
+      </a>
+      <a href="mailto:Ayipexfunby@gmail.com" class="hover:text-[#f30f48]">
+        <img src="https://img.icons8.com/ios-filled/40/ffffff/email.png" alt="Email" />
+      </a>
+    </div>
+  </footer>
+
+  <!-- GitHub Projects Script: Fetch details for your "e-commerce" project -->
+  <script>
+    // Replace 'Funbi-prog' with your GitHub username if different
+    fetch('https://api.github.com/repos/Funbi-prog/e-commerce')
+      .then(response => response.json())
+      .then(repo => {
+        const projectContainer = document.getElementById('github-project');
+        const projectItem = document.createElement('div');
+        projectItem.className = 'project-item fade-in slide-up';
+        projectItem.innerHTML = `
+          <h3 class="project-title">${repo.name}</h3>
+          <p class="project-description">${repo.description || 'I turn ideas into impactful, user-centric digital solutions.'}</p>
+          <a href="${repo.html_url}" target="_blank" class="text-[#f30f48] hover:underline">View Project on GitHub</a>
+        `;
+        projectContainer.appendChild(projectItem);
+      })
+      .catch(error => {
+        console.error('Error fetching GitHub repository:', error);
+      });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const fadeElements = document.querySelectorAll(".fade-in, .slide-up");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.2 });
+      fadeElements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+</body>
+
+</html>
